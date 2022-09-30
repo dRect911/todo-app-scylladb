@@ -21,3 +21,5 @@ app.use('/api', api);
 app.listen(port,()=>{
     console.log(`listening on http://localhost:${port}`)
 });
+
+// in case i forget db pw is iloveboobs69
