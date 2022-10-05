@@ -47,8 +47,11 @@ export default function TodoList(){
     // loading screen
     if (items === null) return (
         <div className="fixed flex-col w-full h-full flex items-center bg-slate-100 text-sky-600 hover:text-sky-400 ">
+
+            {/* app sample lookup */}
             <div className="bg-white p-6 mt-36 border-2 border-slate-300 rounded-xl animate-pulse transition-all">
 
+                {/* item add from */}
                 <form  className="flex items-center mb-1 ">
                     <input 
                     type="text" 
@@ -106,11 +109,10 @@ export default function TodoList(){
                 </div>    
 
             </div>
-            <h3 className="text-sky-600 mt-24  text-xl transition-all" >
 
-                
-                <FontAwesomeIcon  className=" lg:text-[40px]  text-slate-500 animate-spin transition-all" icon={faSpinner} />
-            </h3> 
+            {/* loading spinner */}
+            <FontAwesomeIcon  className=" lg:text-[40px]  text-slate-500 animate-spin transition-all" icon={faSpinner} />
+            
         </div>
     );
 
