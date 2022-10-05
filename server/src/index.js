@@ -22,4 +22,4 @@ app.listen(port,()=>{
     console.log(`listening on http://localhost:${port}`)
 });
 
-// in case i forget db pw is iloveboobs69
+// in case i forget db pw it's iloveboobs69
