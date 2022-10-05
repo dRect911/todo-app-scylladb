@@ -40,8 +40,11 @@ export default function TodoList(){
         setItems([...items.slice(0, index),...items.slice(index + 1)]);
     }
 
-    const onItemUpdate = (item) =>{
-        
+    // update an item
+    const onItemUpdate = async (item) =>{
+        // send a PUT request
+        console.log('update called in TodoList.jsx')
+        await axios.put(`${BASE_URL}/${item.id}`, item);
     }
 
     // loading screen
@@ -49,7 +52,7 @@ export default function TodoList(){
         <div className="fixed flex-col w-full h-full flex items-center bg-slate-100 text-sky-600 hover:text-sky-400 ">
 
             {/* app sample lookup */}
-            <div className="bg-white p-6 mt-36 border-2 border-slate-300 rounded-xl animate-pulse transition-all">
+            <div className="bg-white p-6 mt-20 md:mt-36 border-2 border-slate-300 rounded-xl animate-pulse transition-all">
 
                 {/* item add from */}
                 <form  className="flex items-center mb-1 ">
@@ -120,11 +123,11 @@ export default function TodoList(){
     return(
     <div className="flex flex-col bg-slate-100 items-center w-full h-full fixed ">
 
-        <div className="bg-white p-6 mt-36 sm:mx-8 border-2 border-slate-300 rounded-xl transition-all">
-            <AddItemForm onItemCreate={onItemCreate} onItemUpdate={onItemUpdate} />
+        <div className="bg-white p-6 mt-20 md:mt-36 border-2 border-slate-300 rounded-xl transition-all">
+            <AddItemForm onItemCreate={onItemCreate}  />
 
             {items.map((item) => (
-                <Item key={item.id} item={item} onItemDelete={onItemDelete} />            
+                <Item key={item.id} item={item} onItemDelete={onItemDelete} onItemUpdate={onItemUpdate}/>            
             ))}
 
         </div>

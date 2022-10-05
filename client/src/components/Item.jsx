@@ -12,7 +12,8 @@ export default function Item({item, onItemDelete, onItemUpdate}){
 
     const toggleCompletion = () => {
         // handle completion here
-        // onItemUpdate(item);
+        console.log('update called in Item.jsx');
+        onItemUpdate(item);
         setCompleted(!completed);
     }
 
@@ -49,9 +50,10 @@ export default function Item({item, onItemDelete, onItemUpdate}){
                         onChange={toggleCompletion}
                         className="ml-1 rounded checked:bg-stone-400 hover:checked:bg-stone-500 focus:checked:bg-stone-500 hover:border-2 focus:ring-stone-500 " >                    
                     </input>
-                    <h3 className="ml-2 text-stone-400 " >{item.name}</h3>
+                    <h3 className="ml-2 text-stone-400 line-through " >{item.name}</h3>
                 </div>
                 
+                <FontAwesomeIcon onClick={onDelete} className="pr-2 opacity-0 hover:opacity-100 text-red-600 transition-all" icon={faXmark} />
                 
 
                 {/* <h3 className="text-red-600 pr-2">Done</h3> */}
